@@ -2,6 +2,8 @@
 const whiteList = [
   "https://holyangelsapi.onrender.com",
   "holyangelsapi.onrender.com",
+  "https://holyangels.onrender.com",
+  "holyangels.onrender.com",
 ];
 export const corsOptions = {
   origin: (origin, callback) => {
