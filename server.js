@@ -55,7 +55,7 @@ app.get("/email-verify", (req, res) => {
 
 // auth
 // public access
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+// process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 app.use("/auth", authRoutes);
 
 // put middleware to these route that check for access token
