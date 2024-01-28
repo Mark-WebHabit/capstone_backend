@@ -1,0 +1,29 @@
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 16px;
+}
+body{
+  background-color: #000470;
+  height: 100vh;
+  position: relative;
+  /* overflow: hidden; */
+}
+.circle{
+  background-color: #FFFF04;
+  position: fixed;
+}
+
+.logo{
+  position: fixed;
+  right: 3em;
+  bottom: 3em;
+  background-color: #000470;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
