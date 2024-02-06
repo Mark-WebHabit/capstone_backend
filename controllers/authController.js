@@ -191,16 +191,22 @@ export const requestVerificationEmail = asyncHandler(async (req, res) => {
   );
 
   // if verified that a valid url was sent
+  // await Users.findOneAndUpdate(
+  //   {
+  //     _id: user._id,
+  //   },
+  //   { $set: { verified: true } }
+  // );
   await Users.findOneAndUpdate(
     {
-      _id: user._id,
+      _id: user.id,
     },
-    { $set: { verified: true } }
+    { verified: true }
   );
   await Token.deleteOne({ _id: token._id });
 
   // redirect to login page
-  return res.redirect(302, `${process.env.CLIENT_URL}/auth`);
+  return res.redirect(302, `${process.env.CLIENT_URL}`);
 });
 
 // @desc - Login

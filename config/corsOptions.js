@@ -1,4 +1,4 @@
-// const whiteList = ["http://localhost/8080", "http://localhost/8081"];
+// const whiteList = ["http://localhost:3000", "http://localhost:8080"];
 
 const whiteList = [
   "https://holyangels.onrender.com",
