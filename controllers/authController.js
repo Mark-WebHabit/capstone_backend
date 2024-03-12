@@ -214,6 +214,7 @@ export const requestVerificationEmail = asyncHandler(async (req, res) => {
 // access - PUBLIC
 export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+  const ip = req.clientIp;
 
   if (!email || !password) {
     return res.status(400).json({ error: "All fields are required" });
@@ -269,7 +270,7 @@ export const login = asyncHandler(async (req, res) => {
     userId: matchedUser._id,
     loginDate: getDate(),
     loginTime: getTime(),
-    ipAddress: req.ip || req.connection.remoteAddress,
+    ipAddress: ip,
   };
 
   const loginInfo = new LoginHistory(snapshot);

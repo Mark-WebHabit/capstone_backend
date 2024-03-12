@@ -13,6 +13,7 @@ import adminRoutes from "./routes/adminApiRoute.js";
 
 // custom middleware file
 import { errorLogger } from "./middlewares/errorLogger.js";
+import { assignIp } from "./middlewares/ipExtraction.js";
 
 // config
 import { corsOptions } from "./config/corsOptions.js";
@@ -56,7 +57,7 @@ app.get("/email-verify", (req, res) => {
 // auth
 // public access
 // process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-app.use("/auth", authRoutes);
+app.use("/auth", assignIp, authRoutes);
 
 // put middleware to these route that check for access token
 // protected endpoint
