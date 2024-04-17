@@ -56,7 +56,7 @@ app.get("/email-verify", (req, res) => {
 
 // auth
 // public access
-// process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 app.use("/auth", assignIp, authRoutes);
 
 // put middleware to these route that check for access token
@@ -68,11 +68,15 @@ app.use("/admin", adminRoutes);
 // custom middleware to catch errors
 app.use(errorLogger);
 
+console.log("hello world");
+
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT);
+    app.listen(PORT, () => {
+      console.log(`http://localhost:${PORT}`);
+    });
   });

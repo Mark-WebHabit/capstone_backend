@@ -396,7 +396,6 @@ export const forgotPass = asyncHandler(async (req, res) => {
 // access - PUBLIC
 export const renewPassword = asyncHandler(async (req, res) => {
   let token = req.params.token;
-
   if (!token) {
     return res.status(404).send(`<script>
         alert('Page Not Found, redirecting to ${process.env.CLIENT_URL}');
@@ -593,7 +592,6 @@ export const sendContactMessage = asyncHandler(async (req, res) => {
       .status(400)
       .json({ error: "Please Provide A Valid Email Address" });
 
-  await sendEmailViaContact(email, name, subject, message);
-
+  const response = await sendEmailViaContact(email, name, subject, message);
   return res.json({ data: { success: true } });
 });

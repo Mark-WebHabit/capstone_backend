@@ -1,0 +1,1 @@
+4/17/2024, 10:14:36 PM		status:500		end-point:/auth/login		origin:http://localhost:3000		error:Not allowed by CORS

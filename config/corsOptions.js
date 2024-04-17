@@ -8,7 +8,7 @@ const whiteList = [
 
 export const corsOptions = {
   origin: (origin, callback) => {
-    if (whiteList.indexOf(origin) !== -1) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
       // add !origin for  development in condition
       callback(null, true); // Allow the request
     } else {
