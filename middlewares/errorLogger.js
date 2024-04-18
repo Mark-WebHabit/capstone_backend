@@ -26,6 +26,7 @@ export const errorLogger = (err, req, res, next) => {
     // formatted error log
     const log = `${new Date().toLocaleString()}\t\tstatus:${status}\t\tend-point:${endpoint}\t\torigin:${origin}\t\terror:${error}\n`;
     console.log(log);
+    console.log(err);
     // logger directory path
     const loggerDirectoryPath = path.join(__dirname, "..", "log");
     const errorLoggerFilePath = path.join(

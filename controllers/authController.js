@@ -154,7 +154,7 @@ export const register = asyncHandler(async (req, res) => {
 // access - PUBLIC
 export const requestVerificationEmail = asyncHandler(async (req, res) => {
   const user = await Users.findOne({ _id: req.params.id });
-  console.log("157");
+  console.error("157");
   if (!user) {
     return res.status(400).send(`
       <script>
