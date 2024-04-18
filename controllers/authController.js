@@ -154,6 +154,7 @@ export const register = asyncHandler(async (req, res) => {
 // access - PUBLIC
 export const requestVerificationEmail = asyncHandler(async (req, res) => {
   const user = await Users.findOne({ _id: req.params.id });
+  console.log("157");
   if (!user) {
     return res.status(400).send(`
       <script>
@@ -169,7 +170,12 @@ export const requestVerificationEmail = asyncHandler(async (req, res) => {
 
   if (!token) {
     // return res.status(400).json({ error: "Invalid Link" });
-    return res.redirect(401, process.env.CLIENT_URL);
+    return res.status(401).send(`
+      <script>
+        alert('Unauthorized, redirecting to ${process.env.CLIENT_URL}');
+        window.location.href = '${process.env.CLIENT_URL}';
+      </script>
+    `);
   }
 
   jwt.verify(

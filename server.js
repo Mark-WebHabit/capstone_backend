@@ -74,5 +74,5 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT);
+    app.listen(PORT, () => console.log("running"));
   });
